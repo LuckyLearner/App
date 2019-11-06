@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     loginViewModel.login(usernameEditText.getText().toString(),
-                            passwordEditText.getText().toString());
+                            passwordEditText.getText().toString(),usernameEditText.getText().toString());
                 }
                 return false;
             }
@@ -152,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         URL url = null;// 根据自己的服务器地址填写
                         try {
-                            url = new URL("http://139.9.166.228:1509/index/testapi/ApiLogin");
+                            url = new URL("http://139.9.166.228:1509/index/Api/Apilogin");
                         } catch (MalformedURLException e) {
                             e.printStackTrace();
                         }
@@ -223,7 +223,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
                         }
-                        loginViewModel.login(status, message);
+                        loginViewModel.login(status, message,usernameEditText.getText().toString());
 
 
                     }

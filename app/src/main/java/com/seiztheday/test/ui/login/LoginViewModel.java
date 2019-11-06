@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import android.app.Notification;
 import android.os.Message;
+import android.renderscript.Sampler;
 import android.util.Patterns;
 import android.view.View;
 import com.seiztheday.test.ui.login.LoginActivity;
@@ -42,27 +43,28 @@ public class LoginViewModel extends ViewModel {
         return loginFormState;
     }
 
-    LiveData<LoginResult> getLoginResult() {
+    LiveData<LoginResult> getLoginResult()
+    {
         return loginResult;
     }
 
-    public void login(final String status, final String message)
+    public void login(final String status, final String message,final String username)
     {
-
         // can be launched in a separate asynchronous job
-       Result<LoggedInUser> result = loginRepository.login(status, message);
-
-
+       Result<LoggedInUser> result = loginRepository.login(username, message);
         if (status.equals("1")) {
             LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
             loginResult.postValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
         } else {
+
         loginResult.postValue(new LoginResult(R.string.login_failed));
     }
 
 
 
     }
+
+
 
     public void loginDataChanged(String username, String password) {
         if (!isUserNameValid(username)) {
@@ -75,19 +77,23 @@ public class LoginViewModel extends ViewModel {
     }
 
     // A placeholder username validation check
-    private boolean isUserNameValid(String username) {
-        if (username == null) {
+    private boolean isUserNameValid(String username)
+    {
+        if (username == null)
+        {
             return false;
         }
-        if (username.contains("@")) {
+        if (username.contains("@"))
+        {
             return Patterns.EMAIL_ADDRESS.matcher(username).matches();
-        } else {
+        } else
+        {
             return !username.trim().isEmpty();
         }
     }
-
     // A placeholder password validation check
-    private boolean isPasswordValid(String password) {
-        return password != null && password.trim().length() > 4;
+    private boolean isPasswordValid(String password)
+    {
+        return password != null;
     }
 }
