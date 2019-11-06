@@ -161,7 +161,7 @@ public class RegisterActivity extends AppCompatActivity {
                 });
                 thread.start();
 
-
+                goLoginActivity();
 
             }
         });
@@ -201,18 +201,9 @@ public class RegisterActivity extends AppCompatActivity {
         real_name.addTextChangedListener(afterTextChangedListener);
 
     }
-
-
-
-
-
     private void goLoginActivity(){
         Intent intent = new Intent(this, LoginActivity.class);
         this.startActivity(intent);
         this.finish();
     }
-
-
-
-
 }
