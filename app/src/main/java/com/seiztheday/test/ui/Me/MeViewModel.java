@@ -10,7 +10,7 @@ public class MeViewModel extends ViewModel {
 
     public MeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("这是“我的”");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

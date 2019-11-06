@@ -262,13 +262,21 @@ public class HomeFragment extends Fragment {
                          e.printStackTrace();
                      }
                      try {
-                         textView_data.setText("状态:"+transdata.get("status")+"\n消息:"+transdata.get("message")
+                         String a;
+                         if(transdata.get("status").equals("Success"))
+                         {
+                             a="连接成功！";
+
+                         }
+                         else {
+                             a="连接被拒绝！";
+                         }
+                         textView_data.setText("状态:"+ a+"\n消息:"+transdata.get("message")
 
                          );
                      } catch (JSONException e) {
                          e.printStackTrace();
                      }
-
 
 
                  }

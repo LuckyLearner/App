@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
+import com.seiztheday.test.ui.login.LoginActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -23,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         }, 2000);//界面显示时间
     }
     private void goLoginActivity(){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         this.startActivity(intent);
         this.finish();
     }

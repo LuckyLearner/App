@@ -3,6 +3,7 @@
     package="com.seiztheday.test">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,29 +13,27 @@
         android:roundIcon="@mipmap/bz"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        /*启动页acitivity在主活动前*/
+        <activity android:name=".ui.login.RegisterActivity"></activity>
         <activity
-        android:name=".SplashActivity"
-        android:label="@style/SplashTheme"
-        android:theme="@style/SplashTheme">
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".SplashActivity"
+            android:label="@style/SplashTheme"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
-
-    </activity>
-
+        </activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
